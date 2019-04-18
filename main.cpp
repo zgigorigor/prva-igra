@@ -88,17 +88,19 @@ int main()
 				break;
 			case 2:
 				attacker = playerTwo.strenght;
-				std::cout << "Attacker is: " << playerTwo.userName << std::endl;
+				//std::cout << "Attacker is: " << playerTwo.userName << std::endl;
+				attackerName = playerTwo.userName;
 				break;
 			case 3:
 				attacker = playerThree.strenght;
-				std::cout << "Attacker is: " << playerThree.userName << std::endl;
+				//std::cout << "Attacker is: " << playerThree.userName << std::endl;
+				attackerName = playerThree.userName;
 				break;
 			default:
 				break;
 			}
 
-		std::cout << "Attacker is: " << attackerName << "(ATT: " << attacker << ")" << std::endl;
+		std::cout << "Attacker is: " << attackerName << " (ATT: " << attacker << ")" << std::endl;
 
 		
 		std::cout << "Choose defending player: ";
