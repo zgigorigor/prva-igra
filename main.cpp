@@ -59,10 +59,11 @@ int main()
 	{
 		int chooseAttacker;
 		int chooseDefender;
+		char playCheck;
 
 		std::cout << "Choose attacking player (1,2,3): ";
 		std::cin >> chooseAttacker;
-		std::cout << std::endl;
+		//std::cout << std::endl;
 		if (chooseAttacker <= 0 || chooseAttacker > 3)
 		{
 			std::cout << "===========================" << std::endl;
@@ -92,7 +93,7 @@ int main()
 
 		std::cout << "Choose defending player (1,2,3): ";
 		std::cin >> chooseDefender;
-		std::cout << std::endl;
+		//std::cout << std::endl;
 		if (chooseDefender <= 0 || chooseDefender > 3)
 		{
 			std::cout << "===========================" << std::endl;
@@ -118,7 +119,7 @@ int main()
 			default:
 				break;
 			}
-		std::cout << defenderName << " (" << defender << " HP)" << std::endl;
+		std::cout << defenderName << " (" << defender << " HP)\n" << std::endl;
 
 		std::cin.ignore(1000, '\n');
 		std::cin.clear();
@@ -133,7 +134,20 @@ int main()
 			attacker += 10;
 		}
 	
-		std::cout << defenderName << " lost duel with " <<attackerName<< std::endl;
+		std::cout <<"\n"<< defenderName << " lost duel with " <<attackerName<<"\n"<< std::endl;
+
+		/*std::cout << "Play again? (y/n) " << std::endl;
+		std::cin >> playCheck;
+		if (playCheck = 'y')
+		{
+			break;
+		}
+		else if (playCheck = 'n')
+		{
+			std::cout << "k.bye." << std::endl;
+			system("pause");
+			return 0;
+		}*/
 		
 		
 		/*std::cout << playerOne.userName << " HP: " << playerOne.hp << std::endl;
