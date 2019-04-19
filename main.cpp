@@ -83,24 +83,21 @@ int main()
 			{
 			case 1:
 				attacker = playerOne.strenght;
-				//std::cout << "Attacker is: " << playerOne.userName << "(ATT: " << playerOne.strenght << ")" << std::endl;
 				attackerName = playerOne.userName;
 				break;
 			case 2:
 				attacker = playerTwo.strenght;
-				//std::cout << "Attacker is: " << playerTwo.userName << std::endl;
 				attackerName = playerTwo.userName;
 				break;
 			case 3:
 				attacker = playerThree.strenght;
-				//std::cout << "Attacker is: " << playerThree.userName << std::endl;
 				attackerName = playerThree.userName;
 				break;
 			default:
 				break;
 			}
 
-		std::cout << "Attacker is: " << attackerName << " (ATT: " << attacker << ")" << std::endl;
+		std::cout << "Attacker is: " << attackerName << " (ATT: " << attacker << ")\n" << std::endl;
 
 		
 		std::cout << "Choose defending player: ";
@@ -118,22 +115,24 @@ int main()
 			{
 			case 1:
 				defender = playerOne.hp;
-				std::cout << playerOne.userName << " is defending!" << std::endl;
+				std::cout << playerOne.userName << " is defending! (" << playerOne.hp << " HP)" << std::endl;
 				defenderName = playerOne.userName;
 				break;
 			case 2:
 				defender = playerTwo.hp;
-				std::cout << playerTwo.userName << " is defending!" << std::endl;
+				std::cout << playerTwo.userName << " is defending! (" << playerTwo.hp << " HP)" << std::endl;
+				defenderName = playerTwo.userName;
 				break;
 			case 3:
 				defender = playerThree.hp;
-				std::cout << playerThree.userName << " is defending!" << std::endl;
+				std::cout << playerThree.userName << " is defending! (" << playerThree.hp << " HP)" << std::endl;
+				defenderName = playerThree.userName;
 				break;
 			default:
 				break;
 			}
 
-		std::cout << "defender: " << defenderName <<" - "<< defender << std::endl;
+		std::cout << "defender: " << defenderName <<" - "<< attacker << std::endl;
 
 
 		std::cin.ignore(1000, '\n');
