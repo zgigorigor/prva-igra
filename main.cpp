@@ -15,8 +15,6 @@ public:
 
 	int x, y, velocity, hp, strenght;
 	std::string userName;
-	/*std::string attacker;
-	std::string defender;*/
 
 	void move()
 	{
@@ -29,11 +27,6 @@ public:
 		hp -= amount;
 	}
 };
-
-//int** attacker(int a, int b)
-//{
-//	return;
-//}
 
 int main()
 {
@@ -67,8 +60,7 @@ int main()
 		int chooseAttacker;
 		int chooseDefender;
 
-
-		std::cout << "Choose attacking player: ";
+		std::cout << "Choose attacking player (1,2,3): ";
 		std::cin >> chooseAttacker;
 		std::cout << std::endl;
 		if (chooseAttacker <= 0 || chooseAttacker > 3)
@@ -96,11 +88,9 @@ int main()
 			default:
 				break;
 			}
+		std::cout << attackerName << " (Strenght: " << attacker << ")" << std::endl;
 
-		std::cout << "Attacker is: " << attackerName << " (ATT: " << attacker << ")\n" << std::endl;
-
-		
-		std::cout << "Choose defending player: ";
+		std::cout << "Choose defending player (1,2,3): ";
 		std::cin >> chooseDefender;
 		std::cout << std::endl;
 		if (chooseDefender <= 0 || chooseDefender > 3)
@@ -115,35 +105,37 @@ int main()
 			{
 			case 1:
 				defender = playerOne.hp;
-				std::cout << playerOne.userName << " is defending! (" << playerOne.hp << " HP)" << std::endl;
 				defenderName = playerOne.userName;
 				break;
 			case 2:
 				defender = playerTwo.hp;
-				std::cout << playerTwo.userName << " is defending! (" << playerTwo.hp << " HP)" << std::endl;
 				defenderName = playerTwo.userName;
 				break;
 			case 3:
 				defender = playerThree.hp;
-				std::cout << playerThree.userName << " is defending! (" << playerThree.hp << " HP)" << std::endl;
 				defenderName = playerThree.userName;
 				break;
 			default:
 				break;
 			}
-
-		std::cout << "defender: " << defenderName <<" - "<< attacker << std::endl;
-
+		std::cout << defenderName << " (" << defender << " HP)" << std::endl;
 
 		std::cin.ignore(1000, '\n');
 		std::cin.clear();
-		//std::cout << attacker << " hits " << defender << std::endl;
-		//std::cout<<defender<<" lost "<<
 		
-		//tu ide udaranje!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//std::cout << attackerName << " hits " << defenderName << " for " << attacker << " damage!" << std::endl;
 
-
-
+		while (defender >= 0)
+		{
+			defender -= attacker;
+			std::cout << attackerName << " hits " << defenderName << " for " << attacker << " damage!" << std::endl;
+			std::cout << attackerName << " strenght +10!" << std::endl;
+			attacker += 10;
+		}
+	
+		std::cout << defenderName << " lost duel with " <<attackerName<< std::endl;
+		
+		
 		/*std::cout << playerOne.userName << " HP: " << playerOne.hp << std::endl;
 		std::cout << playerTwo.userName << " HP: " << playerTwo.hp << std::endl;
 		std::cout << playerThree.userName << " HP: " << playerThree.hp << std::endl;
@@ -181,6 +173,7 @@ int main()
 			winningPlayer = playerThree.userName;
 		}*/
 	}
+
 
 	system("pause");
 	std::cin.get();
