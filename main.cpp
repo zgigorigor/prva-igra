@@ -30,6 +30,11 @@ public:
 
 int main()
 {
+	Player playerZero = Player(0, 0, 0, 0, 0);
+	playerZero.userName = "Ghost player";
+	playerZero.strenght = 0;
+	playerZero.hp = 0;
+
 	Player playerOne = Player(0, 0, 10, 30, 10);
 	std::cout << "Player 1 name: ";
 	std::cin >> playerOne.userName;
@@ -50,16 +55,17 @@ int main()
 	std::string losingPlayer;
 	std::string winningPlayer;
 
-	int attacker = 0;
-	int defender = 0;
-	std::string attackerName;
-	std::string defenderName;
+	//int attacker = 0;
+	//int defender = 0;
+	std::string** attackerName;
+	std::string *defenderName;
 
 	while (playerOne.hp > 0 && playerTwo.hp > 0 && playerThree.hp >0)
 	{
 		int chooseAttacker;
 		int chooseDefender;
-		char playCheck;
+		int *attacker, *defender;
+		//char playCheck;
 
 		std::cout << "Choose attacking player (1,2,3): ";
 		std::cin >> chooseAttacker;
@@ -67,29 +73,35 @@ int main()
 		if (chooseAttacker <= 0 || chooseAttacker > 3)
 		{
 			std::cout << "===========================" << std::endl;
-			std::cout << "Player " << chooseAttacker << " doesn't exist!" << std::endl;
+			attacker = &playerZero.strenght;
+			attackerName = &playerZero.userName;
+			std::cout << attackerName << " (" << chooseAttacker << ") doesn't exist!" << std::endl;
 			std::cout << "GAME OVER!\n" << std::endl;
-			break;
+			attacker = 0;
+			system("pause");
+			return 0;
 		}
 		else
-			switch (chooseAttacker)
-			{
-			case 1:
-				attacker = playerOne.strenght;
-				attackerName = playerOne.userName;
-				break;
-			case 2:
-				attacker = playerTwo.strenght;
-				attackerName = playerTwo.userName;
-				break;
-			case 3:
-				attacker = playerThree.strenght;
-				attackerName = playerThree.userName;
-				break;
-			default:
-				break;
-			}
-		std::cout << attackerName << " (Strenght: " << attacker << ")" << std::endl;
+			//switch (chooseAttacker)
+			//{
+			//case 1:
+			//	attacker = &playerOne.strenght;
+			//	attackerName = &playerOne.userName;
+			//	break;
+			//case 2:
+			//	attacker = &playerTwo.strenght;
+			//	attackerName = &playerTwo.userName;
+			//	break;
+			//case 3:
+			//	attacker = &playerThree.strenght;
+			//	attackerName = &playerThree.userName;
+			//	break;
+			//default:
+			//	attacker = &playerZero.strenght;
+			//	attackerName = &playerZero.userName;
+			//	break;
+			//}
+//		std::cout << attackerName << " (Strenght: " << attacker << ")" << std::endl;
 
 		std::cout << "Choose defending player (1,2,3): ";
 		std::cin >> chooseDefender;
@@ -105,18 +117,20 @@ int main()
 			switch (chooseDefender)
 			{
 			case 1:
-				defender = playerOne.hp;
-				defenderName = playerOne.userName;
+				defender = &playerOne.hp;
+				defenderName = &playerOne.userName;
 				break;
 			case 2:
-				defender = playerTwo.hp;
-				defenderName = playerTwo.userName;
+				defender = &playerTwo.hp;
+				defenderName = &playerTwo.userName;
 				break;
 			case 3:
-				defender = playerThree.hp;
-				defenderName = playerThree.userName;
+				defender = &playerThree.hp;
+				defenderName = &playerThree.userName;
 				break;
 			default:
+				defender = &playerZero.hp;
+				defenderName = &playerZero.userName;
 				break;
 			}
 		std::cout << defenderName << " (" << defender << " HP)\n" << std::endl;
@@ -126,13 +140,13 @@ int main()
 		
 		//std::cout << attackerName << " hits " << defenderName << " for " << attacker << " damage!" << std::endl;
 
-		while (defender >= 0)
-		{
-			defender -= attacker;
-			std::cout << attackerName << " hits " << defenderName << " for " << attacker << " damage!" << std::endl;
-			std::cout << attackerName << " strenght +10!" << std::endl;
-			attacker += 10;
-		}
+		//while (defender >= 0)
+		//{
+		//	*defender -= *attacker;
+		//	std::cout << attackerName << " hits " << defenderName << " for " << attacker << " damage!" << std::endl;
+		//	std::cout << attackerName << " strenght +10!" << std::endl;
+		//	attacker += 10;
+		//}
 	
 		std::cout <<"\n"<< defenderName << " lost duel with " <<attackerName<<"\n"<< std::endl;
 
